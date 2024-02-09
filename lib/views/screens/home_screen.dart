@@ -2,6 +2,8 @@ import 'package:cooking_recipe_app/utils/colors.dart';
 import 'package:cooking_recipe_app/views/screens/recipe_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'search_screen.dart';
+
 final ValueNotifier<int> indexValueNotifier = ValueNotifier<int>(0);
 
 class HomeScreen extends StatelessWidget {
@@ -11,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> homePages = [
       Recipescreen(),
-      Text('fav'),
+      SearchScreen(),
       Text('search')
     ];
     return ValueListenableBuilder<int>(

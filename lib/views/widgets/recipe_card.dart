@@ -51,19 +51,21 @@ class RecipeCard extends StatelessWidget {
                           recipe.cuisine,
                           style: const TextStyle(fontSize: 18, color: themeColor),
                         ),
-                       Text(
-                    recipe.name,
-                          style: const TextStyle(
-                              fontSize: 21,
-                              color: themeColor,
-                              fontWeight: FontWeight.bold),
-                        ),
+                       SizedBox(width: MediaQuery.of(context).size.width/2,
+                         child: Text(
+                                           recipe.name,
+                            style: const TextStyle(
+                                fontSize: 21,
+                                color: themeColor,
+                                fontWeight: FontWeight.bold),
+                          ),
+                       ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            recipeCardOptions(label: "Easy"),
-                            recipeCardOptions(label: '15min'),
-                            recipeCardOptions(label: '4.8')
+                            recipeCardOptions(label: recipe.difficulty),
+                            recipeCardOptions(label: recipe.cookTimeMinutes.toString()),
+                            recipeCardOptions(label: recipe.rating.toString())
                           ],
                         )
                       ],
