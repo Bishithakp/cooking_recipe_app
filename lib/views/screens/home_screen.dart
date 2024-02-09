@@ -13,8 +13,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> homePages = [
       Recipescreen(),
+      
+      Text('search'),
       SearchScreen(),
-      Text('search')
     ];
     return ValueListenableBuilder<int>(
         valueListenable: indexValueNotifier,
