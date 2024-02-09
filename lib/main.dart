@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'view_model.dart/recipe_controller.dart';
 import 'views/screens/home_screen.dart';
 
 void main() {
-    WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }
@@ -15,15 +16,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => RecipeController())
+      ],
+      child: MaterialApp(
         title: "Cooking Recipe",
         home: HomeScreen(),
         debugShowCheckedModeBanner: false,
         theme:
             ThemeData(primarySwatch: Colors.blue, brightness: Brightness.light),
-      );
+      ),
+    );
   }
 }
+
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
