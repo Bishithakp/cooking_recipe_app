@@ -25,6 +25,7 @@ class RecipeModel {
 }
 
 class Recipe {
+  bool isliked;
     int id;
     String name;
     List<String> ingredients;
@@ -43,6 +44,7 @@ class Recipe {
     List<String> mealType;
 
     Recipe({
+      this.isliked=false,
         required this.id,
         required this.name,
         required this.ingredients,
@@ -62,6 +64,7 @@ class Recipe {
     });
 
     factory Recipe.fromJson(Map<String, dynamic> json) => Recipe(
+        
         id: json["id"],
         name: json["name"],
         ingredients: List<String>.from(json["ingredients"].map((x) => x)),

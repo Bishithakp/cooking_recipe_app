@@ -1,4 +1,5 @@
 import 'package:cooking_recipe_app/utils/colors.dart';
+import 'package:cooking_recipe_app/views/screens/favourite_screen.dart';
 import 'package:cooking_recipe_app/views/screens/recipe_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     List<Widget> homePages = [
       Recipescreen(),
       
-      Text('search'),
+      FavouriteScreen(),
       SearchScreen(),
     ];
     return ValueListenableBuilder<int>(

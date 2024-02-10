@@ -14,10 +14,26 @@ class RecipeController extends ChangeNotifier {
   List<Recipe> get recipesList => _recipesList;
   UserError get userError => _userError;
   List<Recipe> results = [];
+  List<Recipe> favourite=[];
 
   RecipeController() {
     getRecipe();
   }
+  void setFavourite({required Recipe recipe}) {
+    for (var element in recipesList) {
+      if (element.id == recipe.id) {
+        element.isliked = !element.isliked;
+        if(element.isliked){
+          favourite.add(element);
+        }else{
+          favourite.remove(element);
+        }
+        
+        notifyListeners();
+      }
+    }
+  }
+
   void searchRecipe(String value) {
     results.clear();
     for (var element in recipesList) {

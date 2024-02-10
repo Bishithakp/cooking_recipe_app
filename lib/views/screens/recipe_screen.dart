@@ -17,7 +17,10 @@ class Recipescreen extends StatelessWidget {
       body:ListView.builder (
         itemCount: mod.recipesList.length,
         itemBuilder: (context,index) {
-          return  RecipeCard(recipe: mod.recipesList[index],) ;
+          return  RecipeCard(recipe: mod.recipesList[index],
+          onFavouriteTap: (){
+            mod.setFavourite(recipe: mod.recipesList[index]);
+          },) ;
         }
       ),
     );

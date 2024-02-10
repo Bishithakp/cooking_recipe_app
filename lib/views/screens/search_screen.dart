@@ -48,7 +48,10 @@ class SearchScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(itemBuilder: (context ,index){
-                return RecipeCard(recipe: mod.results[index]);
+                return RecipeCard(onFavouriteTap: (){
+                  mod.setFavourite(recipe: mod.recipesList[index]);
+                },
+                  recipe: mod.results[index]);
               }
               ,itemCount: mod.results.length,),
             )
