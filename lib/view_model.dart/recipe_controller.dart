@@ -28,7 +28,7 @@ class RecipeController extends ChangeNotifier {
         }else{
           favourite.remove(element);
         }
-        
+         
         notifyListeners();
       }
     }
